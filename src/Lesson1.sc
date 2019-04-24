@@ -52,6 +52,7 @@ object Lesson1 {
                                                   //| 344172202132003242925720
                                                   //| Output exceeds cutoff limit.
 
+	// import has scope too
 	import scala.math._
 	sqrt(10)                                  //> res10: Double = 3.1622776601683795
 
@@ -82,4 +83,78 @@ object Lesson1 {
   "Rhine".permutations.toArray.size               //> res19: Int = 120
   "ABC".sum                                       //> res20: Char = 횈
   "ABC".sum.toInt                                 //> res21: Int = 198
+  
+  "123".permutations.toArray                      //> res22: Array[String] = Array(123, 132, 213, 231, 312, 321)
+  
+  var x = 1                                       //> x  : Int = 1
+  val z = if(x > 0) 1 else "adef"                 //> z  : Any = 1
+  val k = ()                                      //> k  : Unit = ()
+  
+  
+  for(i <- 1 to 3; j <-1 to 3 if i!=j) print((10*i+j) + " ")
+                                                  //> 12 13 21 23 31 32 
+  for(i <- for(i <- 1 to 10) yield i % 3){
+  	println(i)                                //> 1
+                                                  //| 2
+                                                  //| 0
+                                                  //| 1
+                                                  //| 2
+                                                  //| 0
+                                                  //| 1
+                                                  //| 2
+                                                  //| 0
+                                                  //| 1
+  }
+                  
+  val x0 = 0                                      //> x0  : Int = 0
+  val y0 = 0                                      //> y0  : Int = 0
+  x = 5
+  var y = 10                                      //> y  : Int = 10
+  
+  val distance = {
+  	val dx = x - x0
+  	val dy = y - y0
+  	sqrt(dx * dx + dy * dy)
+  }                                               //> distance  : Double = 11.180339887498949
+
+	var p = 0                                 //> p  : Int = 0
+	var n = 20                                //> n  : Int = 20
+	while(n > 0){
+		p += 1
+		n = n / 2
+	}
+	
+	def sum(args: Int*)={
+		var result = 0
+		for(arg <- args) result += arg
+		result
+	}                                         //> sum: (args: Int*)Int
+	
+	val sumfromdef = sum(1 to 5:_*)           //> sumfromdef  : Int = 15
+	
+	// Coursera - Scala (You should watch this lesson)
+	
+	
+	def printDebug(args: Any*) = {
+		for(arg <- args.toArray) print(arg + " ")
+	}                                         //> printDebug: (args: Any*)Unit
+	
+	
+	// tail: Selects all elements except the first.
+	def recursiveSum(args: Int*): Int = {
+		printDebug(args)
+		println()
+		if(args.length == 0) 0
+		else args.head + recursiveSum(args.tail:_*)
+	}                                         //> recursiveSum: (args: Int*)Int
+	
+	recursiveSum(1, 2, 3, 4, 5)               //> WrappedArray(1, 2, 3, 4, 5) 
+                                                  //| WrappedArray(2, 3, 4, 5) 
+                                                  //| WrappedArray(3, 4, 5) 
+                                                  //| WrappedArray(4, 5) 
+                                                  //| WrappedArray(5) 
+                                                  //| WrappedArray() 
+                                                  //| res23: Int = 15
+
+	
 }
