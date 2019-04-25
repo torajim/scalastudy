@@ -100,4 +100,23 @@ object Lesson3 {
 	
 	for((k, v) <- pairs) print(k*v)           //> <<---------->>
 	println()                                 //> 
+	
+	
+	def selectFirstNegNum2(src : ArrayBuffer[Int]) = {
+  	var (neg, pos) = src.partition(_ <= -1)
+  	var result = pos
+  	result += neg(0)
+  }                                               //> selectFirstNegNum2: (src: scala.collection.mutable.ArrayBuffer[Int])scala.c
+                                                  //| ollection.mutable.ArrayBuffer[Int]
+  
+  selectFirstNegNum2(question)                    //> res14: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(1, 2, 3, 4, 
+                                                  //| 5, 6, 7, 8, 9, -1)
+  
+  def selectFirstNegNum3(src : ArrayBuffer[Int]) = {
+  	var dim = src.groupBy(_ <= -1 )
+  	var result = ArrayBuffer[Int]()
+  	result += dim(true).head
+  }                                               //> selectFirstNegNum3: (src: scala.collection.mutable.ArrayBuffer[Int])scala.c
+                                                  //| ollection.mutable.ArrayBuffer[Int]
+	selectFirstNegNum3(question)              //> res15: scala.collection.mutable.ArrayBuffer[Int] = ArrayBuffer(-1)
 }
