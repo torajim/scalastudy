@@ -1,8 +1,5 @@
 object TimeRefine2 {
 class Time(private var _hour: Int, private var _minute: Int){
-	if((hour < 0 || hour > 23) || (minute < 0 || minute > 59))
-		throw new IllegalArgumentException("parameter is not type of Time")
-	
 	def hour = _hour
 	def minute = _minute
 	
@@ -13,6 +10,9 @@ class Time(private var _hour: Int, private var _minute: Int){
 	def minute_= (newValue:Int) = {
 		_minute = newValue
 	}
+
+	if((hour < 0 || hour > 23) || (minute < 0 || minute > 59))
+		throw new IllegalArgumentException("parameter is not type of Time")
 	
 	def <(other: Time) : Boolean = {
 		if(hour * 60 + minute < other.hour * 60 + other.minute) true else false
