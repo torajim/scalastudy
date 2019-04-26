@@ -82,9 +82,6 @@ object Lesson7 {
                                                   //| 40320
                                                   //| 362880
                                                   
-  val Array(first, second, last@_*) = Array(1, 2, 3, 4)
-                                                  //> first  : Int = 1
-                                                  //| second  : Int = 2
-                                                  //| last  : Seq[Int] = Vector(3, 4)
+  
                                                     
 }

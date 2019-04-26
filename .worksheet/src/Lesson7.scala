@@ -37,8 +37,8 @@ object Lesson7 {;import org.scalaide.worksheet.runtime.library.WorksheetSupport.
  		}
   };System.out.println("""While1: (cond: () => Boolean, body: () => Unit)Unit""");$skip(59); 
   
-  While1(() => i<n, () => {f *= i; i += 1; println(f)});$skip(107); 
+  While1(() => i<n, () => {f *= i; i += 1; println(f)})}
                                                   
-  val Array(first, second, last@_*) = Array(1, 2, 3, 4);System.out.println("""first  : Int = """ + $show(first ));System.out.println("""second  : Int = """ + $show(second ));System.out.println("""last  : Seq[Int] = """ + $show(last ))}
+  
                                                     
 }
